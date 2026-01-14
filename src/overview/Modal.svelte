@@ -26,8 +26,8 @@
     // The URL is invalid, show an error message on the UI
     showLoading = false;
     errorInfo.show = true;
-    errorInfo.error = usingURL ? "We can't find the image at that URL." :
-      "Not a valid image file.";
+    errorInfo.error = usingURL ? "そのURLで画像が見つかりません。" :
+      "有効な画像ファイルではありません。";
   }
 
   const loadCallback = () => {
@@ -55,7 +55,7 @@
       // If the foreign image does not support CORS -> use this image
       showLoading = false;
       errorInfo.show = true;
-      errorInfo.error = "No permission to load this image."
+      errorInfo.error = "この画像を読み込む権限がありません。"
     }
   }
 
@@ -153,7 +153,7 @@
 
     <div class="modal-card">
       <header class="modal-card-head">
-        <p class="modal-card-title">Add Input Image</p>
+        <p class="modal-card-title">入力画像を追加</p>
         <button class="delete" aria-label="close" on:click={crossClicked}></button>
       </header>
 
@@ -164,7 +164,7 @@
 
             <input class="input small-font" type="url"
               bind:value={inputValue}
-              placeholder="Paste URL of image...">
+              placeholder="画像のURLを貼り付け...">
 
             <span class="icon small-font is-left">
               <i class="fas fa-link"></i>
@@ -172,7 +172,7 @@
 
           </div>
 
-          <div class="or-label">or</div>
+          <div class="or-label">または</div>
 
           <div class="file">
             <label class="file-label">
@@ -185,7 +185,7 @@
                   <i class="fas fa-upload"></i>
                 </span>
                 <span class="file-label">
-                  Upload
+                  アップロード
                 </span>
               </span>
             </label>
@@ -205,12 +205,12 @@
         <div class="button-container">
           <button class="button is-smaller"
             on:click={crossClicked}>
-            Cancel
+            キャンセル
           </button>
 
           <button class="button is-success is-smaller"
             on:click={addClicked}>
-            Add
+            追加
           </button>
         </div>
 

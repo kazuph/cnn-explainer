@@ -75,7 +75,7 @@
 
 			<g filter="url(#chalk-texture)" transform="translate(0, 35)">
 				<text id="svg-logo-tagline">
-					Learn Convolutional Neural Network (CNN) in your browser! 
+					ブラウザで畳み込みニューラルネットワーク (CNN) を学ぼう！
 				</text>
 			</g>
 		</svg>
@@ -83,19 +83,19 @@
 
 	<div class="icons">
 	
-		<div class="icon" title="Research paper">
+		<div class="icon" title="研究論文">
 			<a target="_blank" href="https://arxiv.org/abs/2004.15004">
 				<img src="PUBLIC_URL/assets/img/pdf.png" alt="pdf icon"/>
 			</a>
 		</div>
 
-		<div class="icon" title="Demo video">
+		<div class="icon" title="デモ動画">
 			<a target="_blank" href="https://youtu.be/HnWIHWFbuUQ">
 				<img src="PUBLIC_URL/assets/img/youtube.png" alt="youtube icon"/>
 			</a>
 		</div>
 
-		<div class="icon" title="Open-source code">
+		<div class="icon" title="オープンソースコード">
 			<a target="_blank" href="https://github.com/poloclub/cnn-explainer">
 				<img src="PUBLIC_URL/assets/img/github.png" alt="github icon"/>
 			</a>

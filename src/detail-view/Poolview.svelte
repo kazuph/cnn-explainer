@@ -159,22 +159,22 @@
       <div class="control-pannel">
       
         <div class="title-text">
-          Max Pooling
+          マックスプーリング (Max Pooling)
         </div>
 
         <div class="buttons">
 
-          <div class="control-button" on:click={handleScroll} title="Jump to article section">
+          <div class="control-button" on:click={handleScroll} title="記事セクションへ移動">
             <i class="fas fa-info-circle"></i>
           </div>
 
-          <div class="play-button control-button" on:click={handleClickPause} title="Play animation">
+          <div class="play-button control-button" on:click={handleClickPause} title="アニメーション再生">
             {@html isPaused ?
               '<i class="fas fa-play-circle play-icon"></i>' :
               '<i class="fas fa-pause-circle"></i>'}
           </div>
 
-          <div class="delete-button control-button" on:click={handleClickX} title="Close">
+          <div class="delete-button control-button" on:click={handleClickX} title="閉じる">
             <i class="fas control-icon fa-times-circle"></i>
           </div>
         </div>
@@ -182,8 +182,8 @@
       </div>
 
       <div class="container is-centered is-vcentered">
-        <PoolAnimator on:message={handlePauseFromInteraction} 
-          kernelLength={kernelLength} image={input} output={outputFinal} 
+        <PoolAnimator on:message={handlePauseFromInteraction}
+          kernelLength={kernelLength} image={input} output={outputFinal}
           stride={stride} dilation={dilation} isPaused={isPaused}
           dataRange={dataRange} />
       </div>
@@ -191,7 +191,7 @@
       <div class="annotation">
         <img src='PUBLIC_URL/assets/img/pointer.svg' alt='pointer icon'>
           <div class="annotation-text">
-            <span style="font-weight:600">Hover over</span> the matrices to change kernel position.
+            行列にマウスを<span style="font-weight:600">重ねて</span>カーネル位置を変更。
           </div>
       </div>
 

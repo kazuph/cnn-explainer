@@ -1509,7 +1509,7 @@
           <img class="custom-image"
             src="PUBLIC_URL/assets/img/plus.svg"
             alt="plus button"
-            title="Add new input image"
+            title="新しい入力画像を追加"
             data-imageName="custom"/>
 
           <span class="fa-stack edit-icon"
@@ -1543,12 +1543,12 @@
           <i class="fas fa-eye"></i>
         </span>
         <span id="hover-label-text">
-          Show detail
+          詳細表示
         </span>
       </button>
 
       <div class="control is-very-small has-icons-left"
-        title="Change color scale range">
+        title="カラースケール範囲を変更">
         <span class="icon is-left">
           <i class="fas fa-palette"></i>
         </span>
@@ -1556,9 +1556,9 @@
         <div class="select">
           <select bind:value={selectedScaleLevel} id="level-select"
             disabled={disableControl}>
-            <option value="local">Unit</option>
-            <option value="module">Module</option>
-            <option value="global">Global</option>
+            <option value="local">ユニット</option>
+            <option value="module">モジュール</option>
+            <option value="global">グローバル</option>
           </select>
         </div>
       </div>

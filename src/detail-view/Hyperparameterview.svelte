@@ -161,7 +161,7 @@
         <div class="input-row">
           <div class="field is-horizontal">
             <div class="field-label is-normal">
-              <label class="label">Input Size:</label>
+              <label class="label">入力サイズ:</label>
             </div>
             <input class="input is-very-small" type="number" bind:value={inputSize}
               min={kernelSize} max={7}>
@@ -174,7 +174,7 @@
         <div class="input-row">
           <div class="field is-horizontal">
             <div class="field-label is-normal">
-              <label class="label">Padding:</label>
+              <label class="label">パディング:</label>
             </div>
             <input class="input is-very-small" type="number" bind:value={padding} min={0}
               max={kernelSize - 1}>
@@ -187,7 +187,7 @@
         <div class="input-row">
           <div class="field is-horizontal">
             <div class="field-label is-normal">
-              <label class="label">Kernel Size:</label>
+              <label class="label">カーネルサイズ:</label>
             </div>
             <input class="input is-very-small" type="number" bind:value={kernelSize} min={padding + 1}
               max={inputSizeWithPadding}>
@@ -200,7 +200,7 @@
         <div class="input-row">
           <div class="field is-horizontal">
             <div class="field-label is-normal">
-              <label class="label">Stride:</label>
+              <label class="label">ストライド:</label>
             </div>
             <input class="input is-very-small" type=number id="strideNumber" bind:value={stride} min=1
               max={Math.max(inputSizeWithPadding - kernelSize + 1, 2)}>
@@ -212,17 +212,17 @@
       </div>
 
         <div class="right-part">
-          <HyperparameterAnimator on:message={handlePauseFromInteraction} 
+          <HyperparameterAnimator on:message={handlePauseFromInteraction}
             kernel={kernel} image={input} output={outputFinal} isStrideValid={isStrideValid}
             stride={stride} dilation={dilation} padding={padding} isPaused={isPaused}/>
 
           <div class="annotation">
             <img src='PUBLIC_URL/assets/img/pointer.svg' alt='pointer icon' width="25px">
             <div class="annotation-text-hyper">
-              <span style="font-weight:600">Hover over</span> the matrices to change kernel position.
+              行列にマウスを<span style="font-weight:600">重ねて</span>カーネル位置を変更。
             </div>
           </div>
-          
+
         </div>
 
     </div>

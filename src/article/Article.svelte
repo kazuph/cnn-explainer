@@ -102,163 +102,163 @@
 
 <body>
   <div id="description">
-    <h2>What is a Convolutional Neural Network?</h2>
+    <h2>畳み込みニューラルネットワーク (CNN) とは？</h2>
     <p>
-		In machine learning, a classifier assigns a class label to a data point.  For example, an <em>image classifier</em> produces a class label (e.g, bird, plane) for what objects exist within an image.  A <em>convolutional neural network</em>, or CNN for short, is a type of classifier, which excels at solving this problem!
+		機械学習において、分類器 (Classifier) はデータ点にクラスラベルを割り当てます。例えば、<em>画像分類器</em>は画像内に存在するオブジェクト（鳥、飛行機など）に対してクラスラベルを生成します。<em>畳み込みニューラルネットワーク</em>（Convolutional Neural Network、略してCNN）は、この問題を解決するのに優れた分類器の一種です！
 	 </p>
   	<p>
-  		A CNN is a neural network: an algorithm used to recognize patterns in data. Neural Networks in general are composed of a collection of neurons that are organized in layers, each with their own learnable weights and biases.  Let’s break down a CNN into its basic building blocks.
+  		CNNはニューラルネットワークの一種で、データ内のパターンを認識するためのアルゴリズムです。一般的にニューラルネットワークは、層 (Layer) に編成されたニューロン (Neuron) の集合で構成され、各ニューロンは学習可能な重み (Weights) とバイアス (Biases) を持っています。CNNを基本的な構成要素に分解して見てみましょう。
   	</p>
   	<ol>
-  		<li>A <strong>tensor</strong> can be thought of as an n-dimensional matrix.  In the CNN above, tensors will be 3-dimensional with the exception of the output layer.</li>
-  		<li>A <strong>neuron</strong> can be thought of as a function that takes in multiple inputs and yields a single output.  The outputs of neurons are represented above as the <span style="color:#FF7577;">red</span> &rarr; <span style="color:#60A7D7;">blue</span> <strong>activation maps</strong>.</li>
-  		<li>A <strong>layer</strong> is simply a collection of neurons with the same operation, including the same hyperparameters.</li>
-  		<li><strong>Kernel weights and biases</strong>, while unique to each neuron, are tuned during the training phase, and allow the classifier to adapt to the problem and dataset provided.  They are encoded in the visualization with a <span style="color:#BC8435;">yellow</span> &rarr; <span style="color:#39988F;">green</span> diverging colorscale.  The specific values can be viewed in the <em>Interactive Formula View</em> by clicking a neuron or by hovering over the kernel/bias in the <em>Convolutional Elastic Explanation View</em>.</li>
-  		<li>A CNN conveys a <strong>differentiable score function</strong>, which is represented as <strong>class scores</strong> in the visualization on the output layer.</li>
-  	</ol> 
+  		<li><strong>テンソル (Tensor)</strong> は、n次元の行列と考えることができます。上記のCNNでは、出力層を除いてテンソルは3次元になります。</li>
+  		<li><strong>ニューロン (Neuron)</strong> は、複数の入力を受け取り、単一の出力を生成する関数と考えることができます。ニューロンの出力は上記で<span style="color:#FF7577;">赤</span> &rarr; <span style="color:#60A7D7;">青</span>の<strong>活性化マップ (Activation Maps)</strong>として表現されています。</li>
+  		<li><strong>層 (Layer)</strong> は、同じ演算と同じハイパーパラメータを持つニューロンの集合です。</li>
+  		<li><strong>カーネル重み (Kernel Weights) とバイアス (Biases)</strong> は、各ニューロンに固有のものですが、学習フェーズ中に調整され、分類器が与えられた問題とデータセットに適応できるようにします。可視化では、<span style="color:#BC8435;">黄色</span> &rarr; <span style="color:#39988F;">緑</span>の発散カラースケールで表現されています。具体的な値は、ニューロンをクリックするか、<em>畳み込みエラスティック説明ビュー</em>でカーネル/バイアスにマウスを重ねることで、<em>インタラクティブ数式ビュー</em>で確認できます。</li>
+  		<li>CNNは<strong>微分可能なスコア関数</strong>を伝達し、出力層の可視化では<strong>クラススコア</strong>として表現されます。</li>
+  	</ol>
   	<p>
-  		If you have studied neural networks before, these terms may sound familiar to you.  So what makes a CNN different? CNNs utilize a special type of layer, aptly named a convolutional layer, that makes them well-positioned to learn from image and image-like data.  Regarding image data, CNNs can be used for many different computer vision tasks, such as <a href="http://ijcsit.com/docs/Volume%207/vol7issue5/ijcsit20160705014.pdf" title="CNN Applications">image processing, classification, segmentation, and object detection</a>.
-  	</p>  
+  		以前にニューラルネットワークを学習したことがある方には、これらの用語は馴染みがあるかもしれません。では、CNNの何が特別なのでしょうか？CNNは「畳み込み層 (Convolutional Layer)」と呼ばれる特殊な層を使用しており、画像や画像のようなデータからの学習に適しています。画像データに関しては、CNNは<a href="http://ijcsit.com/docs/Volume%207/vol7issue5/ijcsit20160705014.pdf" title="CNN Applications">画像処理、分類、セグメンテーション、物体検出</a>など、多くのコンピュータビジョンタスクに使用できます。
+  	</p>
   	<p>
-  		In CNN Explainer, you can see how a simple CNN can be used for image classification.  Because of the network’s simplicity, its performance isn’t perfect, but that’s okay! The network architecture, <a href="http://cs231n.stanford.edu/" title="Tiny VGG Net presented by Stanford's CS231n">Tiny VGG</a>, used in CNN Explainer contains many of the same layers and operations used in state-of-the-art CNNs today, but on a smaller scale.  This way, it will be easier to understand getting started.
+  		CNN Explainerでは、シンプルなCNNが画像分類にどのように使用されるかを見ることができます。ネットワークのシンプルさゆえに、その性能は完璧ではありませんが、それで問題ありません！CNN Explainerで使用されているネットワークアーキテクチャ<a href="http://cs231n.stanford.edu/" title="Tiny VGG Net presented by Stanford's CS231n">Tiny VGG</a>は、現在の最先端CNNで使用されている層や演算の多くを含んでいますが、より小規模なものです。このため、入門として理解しやすくなっています。
       </p>     
 
-      <h2>What does each layer of the network do?</h2>
+      <h2>各層の役割は？</h2>
       <p>
-  		Let’s walk through each layer in the network.  Feel free to interact with the visualization above by clicking and hovering over various parts of it as you read. 
+  		ネットワークの各層を見ていきましょう。読みながら、上の可視化をクリックしたりマウスを重ねたりして自由に操作してみてください。
       </p>
-      <h4 id='article-input'>Input Layer</h4>
+      <h4 id='article-input'>入力層 (Input Layer)</h4>
       <p>
-      	The input layer (leftmost layer) represents the input image into the CNN.  Because we use RGB images as input, the input layer has three channels, corresponding to the red, green, and blue channels, respectively, which are shown in this layer. Use the color scale when you click on the <img class="is-rounded" width="12%" height="12%" src="PUBLIC_URL/assets/figures/network_details.png" alt="network details icon"/> icon above to display detailed information (on this layer, and others).
+      	入力層（最も左の層）は、CNNへの入力画像を表しています。RGB画像を入力として使用しているため、入力層にはそれぞれ赤、緑、青のチャンネルに対応する3つのチャンネルがあり、この層に表示されています。上の<img class="is-rounded" width="12%" height="12%" src="PUBLIC_URL/assets/figures/network_details.png" alt="network details icon"/>アイコンをクリックしてカラースケールを使用すると、この層や他の層の詳細情報を表示できます。
       </p>
-      <h4 id='article-convolution'>Convolutional Layers</h4>
+      <h4 id='article-convolution'>畳み込み層 (Convolutional Layers)</h4>
       <p>
-  		The convolutional layers are the foundation of CNN, as they contain the learned kernels (weights), which extract features that distinguish different images from one another&mdash;this is what we want for classification!  As you interact with the convolutional layer, you will notice links between the previous layers and the convolutional layers.  Each link represents a unique kernel, which is used for the convolution operation to produce the current convolutional neuron’s output or activation map.  
+  		畳み込み層はCNNの基盤です。学習されたカーネル（重み）を含み、異なる画像を区別する特徴を抽出します。これがまさに分類に必要なものです！畳み込み層を操作すると、前の層と畳み込み層の間のリンクに気づくでしょう。各リンクは固有のカーネルを表し、畳み込み演算で現在の畳み込みニューロンの出力または活性化マップを生成するために使用されます。
   	</p>
   	<p>
-  		The convolutional neuron performs an elementwise dot product with a unique kernel and the output of the previous layer’s corresponding neuron.  This will yield as many intermediate results as there are unique kernels.  The convolutional neuron is the result of all of the intermediate results summed together with the learned bias.
+  		畳み込みニューロンは、固有のカーネルと前の層の対応するニューロンの出力との要素ごとの内積を実行します。これにより、固有のカーネルの数だけ中間結果が生成されます。畳み込みニューロンは、すべての中間結果を学習されたバイアスと合計した結果です。
   	</p>
   	<p>
-  		For example, let’s look at the first convolutional layer in the Tiny VGG architecture above.  Notice that there are 10 neurons in this layer, but only 3 neurons in the previous layer.  In the Tiny VGG architecture, convolutional layers are fully-connected, meaning each neuron is connected to every other neuron in the previous layer.  Focusing on the output of the topmost convolutional neuron from the first convolutional layer, we see that there are 3 unique kernels when we hover over the activation map.  
+  		例えば、上のTiny VGGアーキテクチャの最初の畳み込み層を見てみましょう。この層には10個のニューロンがありますが、前の層には3個のニューロンしかありません。Tiny VGGアーキテクチャでは、畳み込み層は全結合されています。つまり、各ニューロンは前の層のすべてのニューロンに接続されています。最初の畳み込み層の最上部の畳み込みニューロンの出力に注目すると、活性化マップにマウスを重ねたときに3つの固有のカーネルがあることがわかります。
   	</p>
     <div class="figure">
       <img src="PUBLIC_URL/assets/figures/convlayer_overview_demo.gif" alt="clicking on topmost first conv. layer activation map" width=60% height=60% align="middle"/>
       <div class="figure-caption">
-  		  Figure 1.  As you hover over the activation map of the topmost node from the first convolutional layer, you can see that 3 kernels were applied to yield this activation map.  After clicking this activation map, you can see the convolution operation occuring with each unique kernel.
+  		  図1. 最初の畳み込み層の最上部ノードの活性化マップにマウスを重ねると、この活性化マップを生成するために3つのカーネルが適用されていることがわかります。この活性化マップをクリックすると、各固有のカーネルで畳み込み演算が行われている様子を確認できます。
   	  </div>
     </div>
 
   	<p>
-  		The size of these kernels is a hyper-parameter specified by the designers of the network architecture.  In order to produce the output of the convolutional neuron (activation map), we must perform an elementwise dot product with the output of the previous layer and the unique kernel learned by the network.  In TinyVGG, the dot product operation uses a stride of 1, which means that the kernel is shifted over 1 pixel per dot product, but this is a hyperparameter that the network architecture designer can adjust to better fit their dataset.  We must do this for all 3 kernels, which will yield 3 intermediate results.  
+  		これらのカーネルのサイズは、ネットワークアーキテクチャの設計者が指定するハイパーパラメータです。畳み込みニューロンの出力（活性化マップ）を生成するには、前の層の出力とネットワークが学習した固有のカーネルとの要素ごとの内積を実行する必要があります。TinyVGGでは、内積演算はストライド1を使用します。これは、カーネルが内積ごとに1ピクセルずつシフトされることを意味しますが、これはネットワークアーキテクチャ設計者がデータセットに合わせて調整できるハイパーパラメータです。3つすべてのカーネルに対してこれを行う必要があり、3つの中間結果が生成されます。
   	</p>
     <div class="figure">
       <img src="PUBLIC_URL/assets/figures/convlayer_detailedview_demo.gif" alt="clicking on topmost first conv. layer activation map" />
       <div class="figure-caption">
-        Figure 2. The kernel being applied to yield the topmost intermediate result for the discussed activation map.
+        図2. 説明した活性化マップの最上部の中間結果を生成するために適用されているカーネル。
       </div>
     </div>
   	<p>
-  		Then, an elementwise sum is performed containing all 3 intermediate results along with the bias the network has learned.  After this, the resulting 2-dimensional tensor will be the activation map viewable on the interface above for the topmost neuron in the first convolutional layer.  This same operation must be applied to produce each neuron’s activation map.
+  		次に、3つすべての中間結果とネットワークが学習したバイアスを含む要素ごとの和が実行されます。その後、結果として得られる2次元テンソルが、最初の畳み込み層の最上部ニューロンの活性化マップとして上のインターフェースで表示されます。各ニューロンの活性化マップを生成するために、同じ演算を適用する必要があります。
   	</p>
   	<p>
-  		With some simple math, we are able to deduce that there are 3 x 10 = 30 unique kernels, each of size 3x3, applied in the first convolutional layer.  The connectivity between the convolutional layer and the previous layer is a design decision when building a network architecture, which will affect the number of kernels per convolutional layer.  Click around the visualization to better understand the operations behind the convolutional layer.  See if you can follow the example above!
+  		簡単な計算で、最初の畳み込み層には3 x 10 = 30個の固有のカーネル（各サイズ3x3）が適用されていることがわかります。畳み込み層と前の層の間の接続は、ネットワークアーキテクチャを構築する際の設計上の決定であり、畳み込み層ごとのカーネル数に影響します。可視化をクリックして、畳み込み層の背後にある演算をより深く理解してください。上の例に従ってみてください！
     </p>
-    <h6>Understanding Hyperparameters</h6>
+    <h6>ハイパーパラメータの理解</h6>
     <p>
     	<HyperparameterView/>
     </p>
     <ol>
-    	<li><strong>Padding</strong> is often necessary when the kernel extends beyond the activation map.  Padding conserves data at the borders of activation maps, which leads to better performance, and it can help <a href="https://arxiv.org/pdf/1603.07285.pdf" title="See page 13">preserve the input's spatial size</a>, which allows an architecture designer to build deeper, higher performing networks.  There exist <a href="https://arxiv.org/pdf/1811.11718.pdf" title="Outlines major padding techniques">many padding techniques</a>, but the most commonly used approach is zero-padding because of its performance, simplicity, and computational efficiency.  The technique involves adding zeros symmetrically around the edges of an input.  This approach is adopted by many high-performing CNNs such as <a href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf" title="AlexNet">AlexNet</a>.</li>
-    	<li><strong>Kernel size</strong>, often also referred to as filter size, refers to the dimensions of the sliding window over the input.  Choosing this hyperparameter has a massive impact on the image classification task.  For example, small kernel sizes are able to extract a much larger amount of information containing highly local features from the input.  As you can see on the visualization above, a smaller kernel size also leads to a smaller reduction in layer dimensions, which allows for a deeper architecture.  Conversely, a large kernel size extracts less information, which leads to a faster reduction in layer dimensions, often leading to worse performance.  Large kernels are better suited to extract features that are larger.  At the end of the day, choosing an appropriate kernel size will be dependent on your task and dataset, but generally, smaller kernel sizes lead to better performance for the image classification task because an architecture designer is able to stack <a href="https://arxiv.org/pdf/1409.1556.pdf" title="Learn why deeper networks perform better!">more and more layers together to learn more and more complex features</a>!</li>
-    	<li><strong>Stride</strong> indicates how many pixels the kernel should be shifted over at a time.  For example, as described in the convolutional layer example above, Tiny VGG uses a stride of 1 for its convolutional layers, which means that the dot product is performed on a 3x3 window of the input to yield an output value, then is shifted to the right by one pixel for every subsequent operation.  The impact stride has on a CNN is similar to kernel size.  As stride is decreased, more features are learned because more data is extracted, which also leads to larger output layers.  On the contrary, as stride is increased, this leads to more limited feature extraction and smaller output layer dimensions.  One responsibility of the architecture designer is to ensure that the kernel slides across the input symmetrically when implementing a CNN.  Use the hyperparameter visualization above to alter stride on various input/kernel dimensions to understand this constraint!</li>
+    	<li><strong>パディング (Padding)</strong> は、カーネルが活性化マップを超えて拡張する場合に必要になることがよくあります。パディングは活性化マップの境界でデータを保持し、より良い性能につながります。また、<a href="https://arxiv.org/pdf/1603.07285.pdf" title="See page 13">入力の空間サイズを保持</a>するのに役立ち、アーキテクチャ設計者がより深く、より高性能なネットワークを構築できるようにします。<a href="https://arxiv.org/pdf/1811.11718.pdf" title="Outlines major padding techniques">多くのパディング技術</a>がありますが、最も一般的に使用されるアプローチはゼロパディングです。これは、その性能、シンプルさ、計算効率のためです。この技術は、入力の端に対称的にゼロを追加することを含みます。このアプローチは、<a href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf" title="AlexNet">AlexNet</a>などの多くの高性能CNNで採用されています。</li>
+    	<li><strong>カーネルサイズ (Kernel Size)</strong>は、フィルターサイズとも呼ばれ、入力上をスライドするウィンドウの次元を指します。このハイパーパラメータの選択は、画像分類タスクに大きな影響を与えます。例えば、小さなカーネルサイズは、入力から非常にローカルな特徴を含む大量の情報を抽出できます。上の可視化でわかるように、小さなカーネルサイズは層の次元の減少も小さくなり、より深いアーキテクチャが可能になります。逆に、大きなカーネルサイズは情報の抽出が少なくなり、層の次元がより速く減少し、多くの場合、性能が低下します。大きなカーネルは、より大きな特徴を抽出するのに適しています。結局のところ、適切なカーネルサイズの選択はタスクとデータセットに依存しますが、一般的に、小さなカーネルサイズは画像分類タスクでより良い性能につながります。なぜなら、アーキテクチャ設計者は<a href="https://arxiv.org/pdf/1409.1556.pdf" title="Learn why deeper networks perform better!">より多くの層を積み重ねて、より複雑な特徴を学習</a>できるからです！</li>
+    	<li><strong>ストライド (Stride)</strong> は、カーネルが一度にどれだけのピクセルをシフトするかを示します。例えば、上記の畳み込み層の例で説明したように、Tiny VGGは畳み込み層でストライド1を使用しています。これは、入力の3x3ウィンドウで内積が実行されて出力値が生成され、その後の各演算で1ピクセルずつ右にシフトされることを意味します。ストライドがCNNに与える影響はカーネルサイズに似ています。ストライドが減少すると、より多くのデータが抽出されるため、より多くの特徴が学習され、出力層も大きくなります。逆に、ストライドが増加すると、特徴抽出がより限定的になり、出力層の次元が小さくなります。アーキテクチャ設計者の責任の1つは、CNNを実装する際にカーネルが入力上を対称的にスライドすることを確認することです。上のハイパーパラメータの可視化を使用して、さまざまな入力/カーネル次元でストライドを変更し、この制約を理解してください！</li>
     </ol>
-    <h4>Activation Functions</h4>
+    <h4>活性化関数 (Activation Functions)</h4>
     <h6 id='article-relu'>ReLU</h6>
     <p>
-    	Neural networks are extremely prevalent in modern technology&mdash;because they are so accurate!  The highest performing CNNs today consist of an absurd amount of layers, which are able to learn more and more features.  Part of the reason these groundbreaking CNNs are able to achieve such <a href="https://arxiv.org/pdf/1512.03385.pdf" title="ResNet">tremendous accuracies</a> is because of their non-linearity.  ReLU applies much-needed non-linearity into the model.  Non-linearity is necessary to produce non-linear decision boundaries, so that the output cannot be written as a linear combination of the inputs.  If a non-linear activation function was not present, deep CNN architectures would devolve into a single, equivalent convolutional layer, which would not perform nearly as well.  The ReLU activation function is specifically used as a non-linear activation function, as opposed to other non-linear functions such as <em>Sigmoid</em> because it has been <a href="https://arxiv.org/pdf/1906.01975.pdf" title="See page 29">empirically observed</a> that CNNs using ReLU are faster to train than their counterparts.
+    	ニューラルネットワークは現代のテクノロジーで非常に普及しています。なぜなら非常に正確だからです！今日の最高性能のCNNは、膨大な数の層で構成されており、より多くの特徴を学習できます。これらの画期的なCNNが<a href="https://arxiv.org/pdf/1512.03385.pdf" title="ResNet">驚異的な精度</a>を達成できる理由の一部は、その非線形性にあります。ReLUはモデルに不可欠な非線形性を適用します。非線形性は、非線形の決定境界を生成するために必要であり、出力が入力の線形結合として書けないようにします。非線形活性化関数がなければ、深いCNNアーキテクチャは単一の等価な畳み込み層に退化し、性能が大幅に低下します。ReLU活性化関数は、<em>Sigmoid</em>などの他の非線形関数ではなく、非線形活性化関数として特に使用されます。これは、ReLUを使用するCNNが<a href="https://arxiv.org/pdf/1906.01975.pdf" title="See page 29">経験的に</a>他の関数を使用するものよりも高速に学習できることが観察されているためです。
     </p>
     <p>
-  	The ReLU activation function is an elementwise mathematical operation: {reluEquation}
+  	ReLU活性化関数は要素ごとの数学的演算です: {reluEquation}
     </p>
     <div class="figure">
     <img src="PUBLIC_URL/assets/figures/relu_graph.png" alt="relu graph" width="30%" height="30%"/>
       <div class="figure-caption">
-        Figure 3. The ReLU activation function graphed, which disregards all negative data.
+        図3. ReLU活性化関数のグラフ。すべての負のデータを無視します。
       </div>
     </div>
     <p>
-  	This activation function is applied elementwise on every value from the input tensor.  For example, if applied ReLU on the value 2.24, the result would be 2.24, since 2.24 is larger than 0.  You can observe how this activation function is applied by clicking a ReLU neuron in the network above.  The Rectified Linear Activation function (ReLU) is performed after every convolutional layer in the network architecture outlined above.  Notice the impact this layer has on the activation map of various neurons throughout the network!
+  	この活性化関数は、入力テンソルのすべての値に要素ごとに適用されます。例えば、値2.24にReLUを適用すると、2.24は0より大きいため、結果は2.24になります。上のネットワークでReLUニューロンをクリックすると、この活性化関数がどのように適用されるかを確認できます。ReLU（Rectified Linear Activation function）は、上記のネットワークアーキテクチャのすべての畳み込み層の後に実行されます。ネットワーク全体のさまざまなニューロンの活性化マップに対してこの層が与える影響に注目してください！
     </p>
     <h6 id='article-softmax'>Softmax</h6>
     <p>
     	{softmaxEquation}
-    	A softmax operation serves a key purpose: making sure the CNN outputs sum to 1.  Because of this, softmax operations are useful to scale model outputs into probabilities.  Clicking on the last layer reveals the softmax operation in the network. Notice how the logits after flatten aren’t scaled between zero to one.  For a visual indication of the impact of each logit (unscaled scalar value), they are encoded using a <span style="color:#FFC385;">light orange</span> &rarr; <span style="color:#C44103;">dark orange</span> color scale.  After passing through the softmax function, each class now corresponds to an appropriate probability! 
+    	Softmax演算は重要な目的を果たします：CNNの出力の合計が1になることを保証します。このため、Softmax演算はモデルの出力を確率にスケーリングするのに役立ちます。最後の層をクリックすると、ネットワークのSoftmax演算が表示されます。平坦化後のロジットが0から1の間にスケーリングされていないことに注目してください。各ロジット（スケーリングされていないスカラー値）の影響を視覚的に示すために、<span style="color:#FFC385;">薄いオレンジ</span> &rarr; <span style="color:#C44103;">濃いオレンジ</span>のカラースケールでエンコードされています。Softmax関数を通過した後、各クラスは適切な確率に対応するようになります！
     </p>
     <p>
-    	You might be thinking what the difference between standard normalization and softmax is&mdash;after all, both rescale the logits between 0 and 1.  Remember that backpropagation is a key aspect of training neural networks&mdash;we want the correct answer to have the largest “signal.” By using softmax, we are effectively “approximating” argmax while gaining differentiability.  Rescaling doesn’t weigh the max significantly higher than other logits, whereas softmax does.  Simply put, softmax is a “softer” argmax&mdash;see what we did there?
+    	標準的な正規化とSoftmaxの違いは何かと思うかもしれません。結局、どちらもロジットを0と1の間にリスケールします。バックプロパゲーションはニューラルネットワークの学習の重要な側面であることを忘れないでください。私たちは正解が最大の「シグナル」を持つことを望んでいます。Softmaxを使用することで、微分可能性を獲得しながら、効果的にargmaxを「近似」しています。リスケーリングは最大値を他のロジットよりも著しく高く重み付けしませんが、Softmaxはそうします。簡単に言えば、Softmaxは「より柔らかい」argmaxです。おわかりですか？
     </p>
     <div class="figure">
     <img src="PUBLIC_URL/assets/figures/softmax_animation.gif" alt="softmax interactive formula view"/>
       <div class="figure-caption">
-        Figure 4. The <em>Softmax Interactive Formula View</em> allows a user to interact with both the color encoded logits and formula to understand how the prediction scores after the flatten layer are normalized to yield classification scores.
+        図4. <em>Softmaxインタラクティブ数式ビュー</em>では、ユーザーがカラーエンコードされたロジットと数式の両方を操作して、平坦化層後の予測スコアがどのように正規化されて分類スコアになるかを理解できます。
       </div>
     </div>
-    <h4 id='article-pooling'>Pooling Layers</h4>
+    <h4 id='article-pooling'>プーリング層 (Pooling Layers)</h4>
     <p>
-    	There are many types of pooling layers in different CNN architectures, but they all have the purpose of gradually decreasing the spatial extent of the network, which reduces the parameters and overall computation of the network.  The type of pooling used in the Tiny VGG architecture above is Max-Pooling.
+    	異なるCNNアーキテクチャには多くのタイプのプーリング層がありますが、すべてネットワークの空間的な範囲を徐々に減少させる目的があり、これによりパラメータとネットワーク全体の計算量が削減されます。上のTiny VGGアーキテクチャで使用されているプーリングのタイプはマックスプーリング (Max-Pooling) です。
     </p>
     <p>
-    	The Max-Pooling operation requires selecting a kernel size and a stride length during architecture design.  Once selected, the operation slides the kernel with the specified stride over the input while only selecting the largest value at each kernel slice from the input to yield a value for the output.  This process can be viewed by clicking a pooling neuron in the network above.
+    	マックスプーリング演算は、アーキテクチャ設計時にカーネルサイズとストライド長を選択する必要があります。選択されると、この演算は指定されたストライドでカーネルを入力上にスライドさせ、各カーネルスライスから入力の最大値のみを選択して出力値を生成します。このプロセスは、上のネットワークでプーリングニューロンをクリックすると確認できます。
     </p>
     <p>
-    	In the Tiny VGG architecture above, the pooling layers use a 2x2 kernel and a stride of 2.  This operation with these specifications results in the discarding of 75% of activations.  By discarding so many values, Tiny VGG is more computationally efficient and avoids overfitting.
+    	上のTiny VGGアーキテクチャでは、プーリング層は2x2カーネルとストライド2を使用しています。これらの仕様でのこの演算は、活性化の75%を破棄することになります。多くの値を破棄することで、Tiny VGGは計算効率が高くなり、過学習を回避します。
     </p>
-    <h4 id='article-flatten'>Flatten Layer</h4>
-    <p>      
-      This layer converts a three-dimensional layer in the network into a one-dimensional vector to fit the  input of a fully-connected layer for classification.  For example, a 5x5x2 tensor would be converted into a vector of size 50.  The previous convolutional layers of the network extracted the features from the input image, but now it is time to classify the features.  We use the softmax function to classify these features, which requires a 1-dimensional input.  This is why the flatten layer is necessary.  This layer can be viewed by clicking any output class.  
+    <h4 id='article-flatten'>平坦化層 (Flatten Layer)</h4>
+    <p>
+      この層は、ネットワーク内の3次元層を1次元ベクトルに変換し、分類のための全結合層の入力に適合させます。例えば、5x5x2のテンソルはサイズ50のベクトルに変換されます。ネットワークの前の畳み込み層は入力画像から特徴を抽出しましたが、今度は特徴を分類する時です。これらの特徴を分類するためにSoftmax関数を使用しますが、これには1次元の入力が必要です。これが平坦化層が必要な理由です。この層は任意の出力クラスをクリックすると確認できます。
     </p>
 
-    <h2>Interactive features</h2>
+    <h2>インタラクティブ機能</h2>
     <ol>
-    	<li><strong>Upload your own image</strong> by selecting <img class="icon is-rounded" src="PUBLIC_URL/assets/figures/upload_image_icon.png" alt="upload image icon"/> to understand how your image is classified into the 10 classes.  By analyzing the neurons throughout the network, you can understand the activations maps and extracted features.</li>
-    	<li><strong>Change the activation map colorscale</strong> to better understand the impact of activations at different levels of abstraction by adjusting <img class="is-rounded" width="12%" height="12%" src="PUBLIC_URL/assets/figures/heatmap_scale.png" alt="heatmap"/>.</li>
-    	<li><strong>Understand network details</strong> such as layer dimensions and colorscales by clicking the <img class="is-rounded" width="12%" height="12%" src="PUBLIC_URL/assets/figures/network_details.png" alt="network details icon"/> icon.</li>
-    	<li><strong>Simulate network operations</strong> by clicking the <img class="icon is-rounded" src="PUBLIC_URL/assets/figures/play_button.png" alt="play icon"/> button or interact with the layer slice in the <em>Interactive Formula View</em> by hovering over portions of the input or output to understand the mappings and underlying operations.</li>
-      <li><strong>Learn layer functions</strong> by clicking <img class="icon is-rounded" src="PUBLIC_URL/assets/figures/info_button.png" alt="info icon"/> from the <em>Interactive Formula View</em> to read layer details from the article.</li>
+    	<li><img class="icon is-rounded" src="PUBLIC_URL/assets/figures/upload_image_icon.png" alt="upload image icon"/>を選択して<strong>自分の画像をアップロード</strong>し、画像が10クラスにどのように分類されるかを理解できます。ネットワーク全体のニューロンを分析することで、活性化マップと抽出された特徴を理解できます。</li>
+    	<li><img class="is-rounded" width="12%" height="12%" src="PUBLIC_URL/assets/figures/heatmap_scale.png" alt="heatmap"/>を調整して<strong>活性化マップのカラースケールを変更</strong>し、異なる抽象レベルでの活性化の影響をより深く理解できます。</li>
+    	<li><img class="is-rounded" width="12%" height="12%" src="PUBLIC_URL/assets/figures/network_details.png" alt="network details icon"/>アイコンをクリックして、層の次元やカラースケールなどの<strong>ネットワークの詳細を理解</strong>できます。</li>
+    	<li><img class="icon is-rounded" src="PUBLIC_URL/assets/figures/play_button.png" alt="play icon"/>ボタンをクリックして<strong>ネットワーク演算をシミュレート</strong>するか、<em>インタラクティブ数式ビュー</em>で入力または出力の部分にマウスを重ねて層スライスを操作し、マッピングと基本的な演算を理解できます。</li>
+      <li><em>インタラクティブ数式ビュー</em>から<img class="icon is-rounded" src="PUBLIC_URL/assets/figures/info_button.png" alt="info icon"/>をクリックして<strong>層の機能を学習</strong>し、記事から層の詳細を読むことができます。</li>
     </ol> 
 
-    <h2>Video Tutorial</h2>
+    <h2>ビデオチュートリアル</h2>
     <ul>
       <li class="video-link" on:click={currentPlayer.play(0)}>
-        CNN Explainer Introduction
+        CNN Explainerの紹介
         <small>(0:00-0:22)</small>
       </li>
       <li class="video-link" on:click={currentPlayer.play(27)}>
-        <em>Overview</em>
+        <em>概要</em>
         <small>(0:27-0:37)</small>
       </li>
       <li class="video-link" on:click={currentPlayer.play(37)}>
-        Convolutional <em>Elastic Explanation View</em>
+        畳み込み<em>エラスティック説明ビュー</em>
         <small>(0:37-0:46)</small>
       </li>
       <li class="video-link" on:click={currentPlayer.play(46)}>
-        Convolutional, ReLU, and Pooling <em>Interactive Formula Views</em>
+        畳み込み、ReLU、プーリング<em>インタラクティブ数式ビュー</em>
         <small>(0:46-1:21)</small>
       </li>
       <li class="video-link" on:click={currentPlayer.play(82)}>
-        Flatten <em>Elastic Explanation View</em>
+        平坦化<em>エラスティック説明ビュー</em>
         <small>(1:22-1:41)</small>
       </li>
       <li class="video-link" on:click={currentPlayer.play(101)}>
-        Softmax <em>Interactive Formula View</em>
+        Softmax <em>インタラクティブ数式ビュー</em>
         <small>(1:41-2:02)</small>
       </li>
       <li class="video-link" on:click={currentPlayer.play(126)}>
-        Engaging Learning Experience: Understanding Classification
+        魅力的な学習体験：分類の理解
         <small>(2:06-2:28)</small>
       </li>
       <li class="video-link" on:click={currentPlayer.play(149)}>
-        Interactive Tutorial Article
+        インタラクティブチュートリアル記事
         <small>(2:29-2:54)</small>
       </li>
     </ul>
@@ -266,24 +266,23 @@
       <Youtube videoId="HnWIHWFbuUQ" playerId="demo_video" bind:this={currentPlayer}/>
     </div>
 
-    <h2>How is CNN Explainer implemented?</h2>
+    <h2>CNN Explainerはどのように実装されていますか？</h2>
     <p>
-      CNN Explainer uses <a href="https://js.tensorflow.org/"><em>TensorFlow.js</em></a>, an in-browser GPU-accelerated deep learning library to load the pretrained model for visualization.  The entire interactive system is written in Javascript using <a href="https://svelte.dev/"><em>Svelte</em></a> as a framework and <a href="https://d3js.org/"><em>D3.js</em></a> for visualizations. You only need a web browser to get started learning CNNs today!
+      CNN Explainerは、<a href="https://js.tensorflow.org/"><em>TensorFlow.js</em></a>（ブラウザ内GPUアクセラレーション深層学習ライブラリ）を使用して、可視化のための学習済みモデルを読み込んでいます。インタラクティブシステム全体は、フレームワークとして<a href="https://svelte.dev/"><em>Svelte</em></a>、可視化には<a href="https://d3js.org/"><em>D3.js</em></a>を使用してJavascriptで記述されています。今日からCNNを学ぶのに必要なのはWebブラウザだけです！
     </p>
 
-    <h2>Who developed CNN Explainer?</h2>
+    <h2>CNN Explainerを開発したのは誰ですか？</h2>
     <p>
-      CNN Explainer was created by 
-      <a href="https://zijie.wang/">Jay Wang</a>,
-      <a href="https://www.linkedin.com/in/robert-turko/">Robert Turko</a>, 
-      <a href="http://oshaikh.com/">Omar Shaikh</a>,
-      <a href="https://haekyu.com/">Haekyu Park</a>,
-      <a href="http://nilakshdas.com/">Nilaksh Das</a>,
-      <a href="https://fredhohman.com/">Fred Hohman</a>,
-      <a href="http://minsuk.com">Minsuk Kahng</a>, and
-      <a href="https://www.cc.gatech.edu/~dchau/">Polo Chau</a>,
-      which was the result of a research collaboration between 
-      Georgia Tech and Oregon State.  We thank Anmol Chhabria, Kaan Sancak, Kantwon Rogers, and the Georgia Tech Visualization Lab for their support and constructive feedback.  This work was supported in part by NSF grants IIS-1563816, CNS-1704701, NASA NSTRF, DARPA GARD, gifts from Intel, NVIDIA, Google, Amazon.
+      CNN Explainerは
+      <a href="https://zijie.wang/">Jay Wang</a>、
+      <a href="https://www.linkedin.com/in/robert-turko/">Robert Turko</a>、
+      <a href="http://oshaikh.com/">Omar Shaikh</a>、
+      <a href="https://haekyu.com/">Haekyu Park</a>、
+      <a href="http://nilakshdas.com/">Nilaksh Das</a>、
+      <a href="https://fredhohman.com/">Fred Hohman</a>、
+      <a href="http://minsuk.com">Minsuk Kahng</a>、
+      <a href="https://www.cc.gatech.edu/~dchau/">Polo Chau</a>
+      によって作成されました。これはGeorgia TechとOregon Stateの研究コラボレーションの成果です。Anmol Chhabria、Kaan Sancak、Kantwon Rogers、Georgia Tech Visualization Labのサポートと建設的なフィードバックに感謝します。この研究は、NSF grants IIS-1563816、CNS-1704701、NASA NSTRF、DARPA GARD、Intel、NVIDIA、Google、Amazonからの寄付によって一部支援されています。
     </p>
   </div>
 </body>
