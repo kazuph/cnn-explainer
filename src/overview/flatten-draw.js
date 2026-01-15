@@ -593,7 +593,7 @@ const drawLogitLayer = (arg) => {
     .style('dominant-baseline', 'middle')
     .style('opacity', 0.8)
     .style('font-weight', 800)
-    .text('logit');
+    .text('ロジット');
 }
 
 const removeLogitLayer = () => {
@@ -739,21 +739,21 @@ const softmaxClicked = (arg) => {
           .attr('class', 'annotation-text softmax-detail-text')
           .style('dominant-baseline', 'baseline')
           .style('text-anchor', 'middle')
-          .text('Normalize ');
-        
-        text.append('tspan') 
-          .attr('dx', 1)
-          .style('fill', '#E56014')
-          .text('logits');
-        
+          .text('');
+
         text.append('tspan')
           .attr('dx', 1)
-          .text(' into');
+          .style('fill', '#E56014')
+          .text('ロジット');
+
+        text.append('tspan')
+          .attr('dx', 1)
+          .text('を正規化して');
 
         text.append('tspan')
           .attr('x', textX)
           .attr('dy', '1.1em')
-          .text('class probabilities');
+          .text('クラス確率に変換');
 
         if (selectedI === 0) {
           drawArrow({
@@ -802,7 +802,7 @@ const softmaxClicked = (arg) => {
           .style('font-weight', '800')
           .append('tspan')
           .attr('x', 0)
-          .text('logit')
+          .text('ロジット')
           .append('tspan')
           .attr('x', 0)
           .style('font-size', '8px')
@@ -815,11 +815,11 @@ const softmaxClicked = (arg) => {
           .attr('x', textX)
           .attr('y', (svgPaddings.top + vSpaceAroundGap) / 2 + 3)
           .style('text-anchor', 'start')
-          .text('Before')
+          .text('正規化')
           .append('tspan')
           .attr('x', textX)
           .attr('dy', '1em')
-          .text('normalization')
+          .text('前')
 
 
         drawArrow({
@@ -838,11 +838,11 @@ const softmaxClicked = (arg) => {
           .attr('x', nodeCoordinate[layerIndexDict['output']][0].x - 35)
           .attr('y', (svgPaddings.top + vSpaceAroundGap) / 2 + 3)
           .style('text-anchor', 'end')
-          .text('After')
+          .text('正規化')
           .append('tspan')
           .attr('x', nodeCoordinate[layerIndexDict['output']][0].x - 35)
           .attr('dy', '1em')
-          .text('normalization')
+          .text('後')
 
         drawArrow({
           group: softmaxDetailAnnotation,
@@ -889,28 +889,28 @@ const softmaxClicked = (arg) => {
           .append('tspan')
           .style('font-weight', 700)
           .style('dominant-baseline', 'baseline')
-          .text(`Hover over `)
+          .text(`ホバー`)
           .append('tspan')
           .style('font-weight', 400)
           .style('dominant-baseline', 'baseline')
-          .text('to see');
-        
+          .text('で');
+
         hoverText.append('tspan')
           .style('dominant-baseline', 'baseline')
           .attr('x', textX)
           .attr('dy', '1em')
-          .text('its ');
+          .text('');
 
         hoverText.append('tspan')
           .style('dominant-baseline', 'baseline')
           .attr('dx', 1)
           .style('fill', '#E56014')
-          .text('logit');
-        
+          .text('ロジット');
+
         hoverText.append('tspan')
           .style('dominant-baseline', 'baseline')
           .attr('dx', 1)
-          .text(' value');
+          .text('値を確認');
         
         drawArrow({
           group: hoverTextGroup,
@@ -1463,7 +1463,7 @@ export const drawFlatten = (curLayerIndex, d, i, width, height) => {
     .style('dominant-baseline', 'middle')
     .style('font-size', '12px')
     .style('opacity', 0.5)
-    .text('softmax');
+    .text('ソフトマックス');
 
   // Draw the layer label
   let layerLabel = intermediateLayer.append('g')
@@ -1488,7 +1488,7 @@ export const drawFlatten = (curLayerIndex, d, i, width, height) => {
     .style('dominant-baseline', 'middle')
     .style('opacity', 0.8)
     .style('font-weight', 800)
-    .text('flatten');
+    .text('フラッテン');
 
   let svgHeight = Number(d3.select('#cnn-svg').style('height').replace('px', '')) + 150;
   let scroll = new SmoothScroll('a[href*="#"]', {offset: -svgHeight});
@@ -1510,7 +1510,7 @@ export const drawFlatten = (curLayerIndex, d, i, width, height) => {
     });
   
   detailedLabelGroup.append('title')
-    .text('Move to article section');
+    .text('記事セクションへ移動');
 
   let detailedLabelText = detailedLabelGroup.append('text')
     .style('text-anchor', 'middle')
@@ -1518,7 +1518,7 @@ export const drawFlatten = (curLayerIndex, d, i, width, height) => {
     .style('opacity', '0.7')
     .style('font-weight', 800)
     .append('tspan')
-    .text('flatten');
+    .text('フラッテン');
   
   let dimension = cnn[layerIndexDict['max_pool_2']].length * 
     cnn[layerIndexDict['max_pool_2']][0].output.length *
@@ -1619,8 +1619,8 @@ export const drawFlatten = (curLayerIndex, d, i, width, height) => {
   
   plusText.append('tspan')
     .style('dominant-baseline', 'hanging')
-    .text('Add up all products');
-  
+    .text('全ての積を加算');
+
   plusText.append('tspan')
     .attr('x', textX)
     .attr('dy', '1em')
@@ -1630,7 +1630,7 @@ export const drawFlatten = (curLayerIndex, d, i, width, height) => {
   plusText.append('tspan')
     .style('fill', '#66a3c8')
     .style('dominant-baseline', 'hanging')
-    .text('element');
+    .text('要素');
 
   plusText.append('tspan')
     .style('dominant-baseline', 'hanging')
@@ -1639,7 +1639,7 @@ export const drawFlatten = (curLayerIndex, d, i, width, height) => {
   plusText.append('tspan')
     .style('dominant-baseline', 'hanging')
     .style('fill', '#b58946')
-    .text('weight');
+    .text('重み');
 
   plusText.append('tspan')
     .style('dominant-baseline', 'hanging')
@@ -1649,12 +1649,12 @@ export const drawFlatten = (curLayerIndex, d, i, width, height) => {
     .attr('x', textX)
     .attr('dy', '1em')
     .style('dominant-baseline', 'hanging')
-    .text('and then ');
+    .text('そして');
 
   plusText.append('tspan')
     .style('dominant-baseline', 'hanging')
     .style('fill', '#479d94')
-    .text('bias');
+    .text('バイアス');
   
   drawArrow({
     group: plusAnnotation,
@@ -1677,7 +1677,7 @@ export const drawFlatten = (curLayerIndex, d, i, width, height) => {
     .attr('y', biasTextY)
     .style('text-anchor', 'middle')
     .style('dominant-baseline', 'baseline')
-    .text('Bias');
+    .text('バイアス');
   
   // Add annotation for the softmax symbol
   let softmaxAnnotation = intermediateLayerAnnotation.append('g')
@@ -1690,11 +1690,11 @@ export const drawFlatten = (curLayerIndex, d, i, width, height) => {
     .style('dominant-baseline', 'baseline')
     .style('text-anchor', 'middle')
     .style('font-weight', 700)
-    .text('Click ')
+    .text('クリック')
     .append('tspan')
     .attr('dx', 1)
     .style('font-weight', 400)
-    .text('to learn more');
+    .text('で詳細を見る');
 
   drawArrow({
     group: softmaxAnnotation,
@@ -1723,25 +1723,25 @@ export const drawFlatten = (curLayerIndex, d, i, width, height) => {
   let tempTspan = flattenText.append('tspan')
     .style('dominant-baseline', 'hanging')
     .style('font-weight', 700)
-    .text('Hover over ');
-  
+    .text('行列を');
+
   tempTspan.append('tspan')
     .attr('dx', 1)
     .style('font-weight', 400)
     .style('dominant-baseline', 'hanging')
-    .text('matrix to');
-  
+    .text('ホバー');
+
   flattenText.append('tspan')
     .style('dominant-baseline', 'hanging')
     .attr('x', textX)
     .attr('dy', '1em')
-    .text('see how it is flattened');
-  
+    .text('してフラッテンの様子を');
+
   flattenText.append('tspan')
     .style('dominant-baseline', 'hanging')
     .attr('x', textX)
     .attr('dy', '1em')
-    .text('into a 1D array!');
+    .text('確認！');
 
   drawArrow({
     group: flattenAnnotation,
@@ -1765,19 +1765,19 @@ export const drawFlatten = (curLayerIndex, d, i, width, height) => {
 
   middleText.append('tspan')
     .style('dominant-baseline', 'hanging')
-    .text('Same flattening');
-  
-  middleText.append('tspan')
-    .style('dominant-baseline', 'hanging')
-    .attr('x', textX)
-    .attr('dy', '1em')
-    .text('operation for');
+    .text('同じフラッテン');
 
   middleText.append('tspan')
     .style('dominant-baseline', 'hanging')
     .attr('x', textX)
     .attr('dy', '1em')
-    .text('each neuron');
+    .text('処理を各');
+
+  middleText.append('tspan')
+    .style('dominant-baseline', 'hanging')
+    .attr('x', textX)
+    .attr('dy', '1em')
+    .text('ニューロンに適用');
 
   drawArrow({
     group: flattenAnnotation,

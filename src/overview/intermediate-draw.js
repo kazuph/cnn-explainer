@@ -746,7 +746,7 @@ const drawIntermediateLayer = (curLayerIndex, leftX, rightX, rightStart,
     .style('dominant-baseline', 'middle')
     .style('font-weight', 800)
     .style('opacity', '0.8')
-    .text('intermediate');
+    .text('中間結果');
   
   intermediateLayer.append('g')
     .attr('class', 'animation-control')
@@ -779,7 +779,7 @@ const drawIntermediateLayer = (curLayerIndex, leftX, rightX, rightStart,
     .style('opacity', '0.7')
     .style('font-weight', 800)
     .append('tspan')
-    .text('intermediate')
+    .text('中間結果')
     .append('tspan')
     .style('font-size', '8px')
     .style('font-weight', 'normal')
@@ -848,7 +848,7 @@ const drawIntermediateLayerAnnotation = (arg) => {
     .attr('class', 'kernel-annotation');
   
   kernelAnnotation.append('text')
-    .text('Kernel')
+    .text('カーネル')
     .attr('class', 'annotation-text')
     .attr('x', leftX - 2.5 * kernelRectLength * 3)
     .attr('y', nodeCoordinate[curLayerIndex - 1][0].y + kernelRectLength * 3)
@@ -900,13 +900,13 @@ const drawIntermediateLayerAnnotation = (arg) => {
   
   slideText.append('tspan')
     .style('dominant-baseline', 'hanging')
-    .text('Slide kernel over input channel');
+    .text('入力チャネル上でカーネルを');
 
   slideText.append('tspan')
     .attr('x', sliderX)
     .attr('dy', '1em')
     .style('dominant-baseline', 'hanging')
-    .text('to get intermediate result');
+    .text('スライドして中間結果を取得');
 
   // slideText.append('tspan')
   //   .attr('x', sliderX)
@@ -919,12 +919,12 @@ const drawIntermediateLayerAnnotation = (arg) => {
     .attr('dy', '1.2em')
     .style('dominant-baseline', 'hanging')
     .style('font-weight', 700)
-    .text('Click ');
-  
+    .text('クリック');
+
   slideText.append('tspan')
     .style('dominant-baseline', 'hanging')
     .style('font-weight', 400)
-    .text('to learn more')
+    .text('で詳細を見る')
 
   drawArrow({
     group: group,
@@ -947,25 +947,25 @@ const drawIntermediateLayerAnnotation = (arg) => {
 
   slideText2.append('tspan')
     .style('dominant-baseline', 'hanging')
-    .text('Each input chanel');
+    .text('各入力チャネルは');
 
   slideText2.append('tspan')
     .attr('x', sliderX)
     .attr('dy', '1em')
     .style('dominant-baseline', 'hanging')
-    .text('gets a different kernel');
+    .text('異なるカーネルを持ちます');
 
   slideText2.append('tspan')
     .attr('x', sliderX)
     .attr('dy', '1.3em')
     .style('font-weight', 700)
     .style('dominant-baseline', 'hanging')
-    .text('Hover over ');
+    .text('ホバー');
 
   slideText2.append('tspan')
     .style('font-weight', 400)
     .style('dominant-baseline', 'hanging')
-    .text('to see value!')
+    .text('で値を表示！')
 
   drawArrow({
     group: group,
@@ -1006,13 +1006,13 @@ const drawIntermediateLayerAnnotation = (arg) => {
   
   plusText.append('tspan')
     .style('dominant-baseline', 'hanging')
-    .text('Add up all intermediate');
-  
+    .text('全ての中間結果を加算し、');
+
   plusText.append('tspan')
     .attr('x', textX)
     .attr('dy', '1em')
     .style('dominant-baseline', 'hanging')
-    .text('results and then add bias');
+    .text('バイアスを加える');
   
   if (i === 9) {
     drawArrow({
@@ -1051,7 +1051,7 @@ const drawIntermediateLayerAnnotation = (arg) => {
     .attr('y', biasTextY)
     .style('text-anchor', 'middle')
     .style('dominant-baseline', i === 0 ? 'hanging' : 'baseline')
-    .text('Bias');
+    .text('バイアス');
 }
 
 /**
